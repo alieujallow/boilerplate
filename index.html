@@ -11,20 +11,23 @@
   
   <script>
     var userAgent = navigator.userAgent + '';
-    if (userAgent.indexOf('iPhone') > -1) {
-      document.write('<script src="js/lib/cordova-iphone.js"></sc' + 'ript>');
-      var mobile_system = 'iphone';
-    } else if (userAgent.indexOf('Android') > -1) {
+    if (userAgent.indexOf('iPhone') > -1)
+     {
+       document.write('<script src="js/lib/cordova-iphone.js"></sc' + 'ript>');
+       var mobile_system = 'iphone';
+     } 
+    else if (userAgent.indexOf('Android') > -1) {
       document.write('<script src="js/lib/cordova-android.js"></sc' + 'ript>');
       var mobile_system = 'android';
-    } else {
+    }
+     else
+    {
       var mobile_system = '';
     }
   </script>
-  
   <script src="js/lib/jquery.js"></script>
+
   <!-- your scripts here -->
-  <script src="js/app/app.js"></script>
   <script src="js/app/bootstrap.js"></script>
   <script src="js/lib/jquery.mobile.js"></script>
 
@@ -38,9 +41,11 @@
     	</div><!-- /header -->
 
     	<div data-role="content">
-            <p id="geolocation">
-                Finding geolocation....
-            </p>
+            <p id="geolocation"></p>
+            <div id="map">
+              
+            </div>
+            <button id="locationBtn">Find Location</button>
     	</div><!-- /content -->
 
     	<div data-role="footer">
@@ -48,5 +53,6 @@
     	</div><!-- /footer -->
 
     </div><!-- /page -->
+     <script src="js/app/app.js"></script>
   </body>
 </html>

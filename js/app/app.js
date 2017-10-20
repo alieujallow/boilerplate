@@ -33,7 +33,7 @@ var id = 1;
         marker.setMap(null);
         id = 1;
         $('#locationBtn').html('Show Location');
-        document.getElementById("locationBtn").innerHTML="Show Location";
+        //document.getElementById("locationBtn").innerHTML="Show Location";
     }
  });
 

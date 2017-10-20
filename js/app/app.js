@@ -17,7 +17,8 @@ var id = 1;
 {
      getMapLocation();
 }*/
-
+ $('#locationBtn').text('Show Location');
+ 
 //gets the location of the device when the button is clicked
  $('#locationBtn').on('click', function()
  {

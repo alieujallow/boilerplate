@@ -3,52 +3,96 @@
 // This is done by using the addEventListener() function.
 //
 
-//document.addEventListener("deviceready", onDeviceReady, false);
-
+var Latitude = undefined;
+var Longitude = undefined;
+var marker = undefined;
+map = undefined;
+document.addEventListener("deviceready", onDeviceReady, false);
+var id = 1;
 
 //We decide to create a function to handle the 3rd party functions (eg. navigator.geolocation.getCurrentPosition)
 // which we earlier added to the native functions of the javascript
 function onDeviceReady()
 {
-    navigator.geolocation.getCurrentPosition(onSuccess, onError);
+     getMapLocation();
 }
 
 //gets the location of the device when the button is clicked
  $('#locationBtn').on('click', function()
  {
-    navigator.geolocation.getCurrentPosition(onSuccess, onError);
+    if (id==1) 
+    {
+        marker.setMap(map);
+        id++;
+        document.getElementById("locationBtn").innerHTML="Hide Location";
+    }
+    else
+    {
+        marker.setMap(null);
+        id = 1;
+        document.getElementById("locationBtn").innerHTML="Show Location";
+    }
  });
 
-
-// onSuccess Geolocation
-//
-function onSuccess(position)
+// Get geo coordinates
+function getMapLocation()
 {
-
-    var element = document.getElementById('geolocation');
-    
-    element.innerHTML = 'Latitude: ' + position.coords.latitude  + '<br />' +
-        'Longitude: '          + position.coords.longitude             + '<br />' +
-        'Altitude: '           + position.coords.altitude              + '<br />' +
-        'Accuracy: '           + position.coords.accuracy              + '<br />' +
-        'Altitude Accuracy: '  + position.coords.altitudeAccuracy      + '<br />' +
-        'Heading: '            + position.coords.heading               + '<br />' +
-        'Speed: '              + position.coords.speed                 + '<br />' +
-        'Timestamp: '          + position.timestamp          + '<br />';
-
-
-    var latitudeLongitude = position.coords.latitude + "," + position.coords.longitude;
-
-    var map = "https://maps.googleapis.com/maps/api/staticmap?center="
-    +latitudeLongitude+"&markers=size:mid|color:red|label:E|"+latitudeLongitude+"&zoom=15&size=400x300&sensor=false&key=AIzaSyBs8AI33gXoVnnhH9P6XCQgliwx5vJBt7s";
-
-    //displays the map
-    document.getElementById("map").innerHTML = "<img src='"+map+"'>";
+    navigator.geolocation.getCurrentPosition
+    (onMapSuccess, onMapError, { enableHighAccuracy: true });
 }
 
-// onError Callback receives a PositionError object
-function onError(error)
+// Success callback for get geo coordinates
+var onMapSuccess = function (position) 
 {
-    alert('code: '    + error.code    + '\n' +
+    Latitude = position.coords.latitude;
+    Longitude = position.coords.longitude;
+    getMap(Latitude, Longitude);
+}
+
+// Get map by using coordinates
+function getMap(latitude, longitude) 
+{
+    var mapOptions = {
+        center: new google.maps.LatLng(0, 0),
+        zoom: 1,
+        mapTypeId: google.maps.MapTypeId.ROADMAP
+    };
+
+    map = new google.maps.Map
+    (document.getElementById("map"), mapOptions);
+    var latLong = new google.maps.LatLng(latitude, longitude);
+    marker = new google.maps.Marker({
+        position: latLong
+    });
+
+    marker.setMap(null);
+    map.setZoom(18);
+    map.setCenter(marker.getPosition());
+}
+
+// Success callback for watching your changing position
+var onMapWatchSuccess = function (position)
+ {
+    var updatedLatitude = position.coords.latitude;
+    var updatedLongitude = position.coords.longitude;
+
+    if (updatedLatitude != Latitude && updatedLongitude != Longitude)
+    {
+        Latitude = updatedLatitude;
+        Longitude = updatedLongitude;
+        getMap(updatedLatitude, updatedLongitude);
+    }
+}
+
+// Error callback
+function onMapError(error) {
+    console.log('code: ' + error.code + '\n' +
         'message: ' + error.message + '\n');
+}
+
+// Watch your changing position
+function watchMapPosition() 
+{
+    return navigator.geolocation.watchPosition
+    (onMapWatchSuccess, onMapError, { enableHighAccuracy: true });
 }

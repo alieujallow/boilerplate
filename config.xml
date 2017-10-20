@@ -3,13 +3,13 @@
 <!-- config.xml reference: https://build.phonegap.com/docs/config-xml -->
 <widget xmlns     = "http://www.w3.org/ns/widgets" xmlns:gap = "http://phonegap.com/ns/1.0"  id        = "com.phonegap.helloworld" version   = "1.0.0">
 
-    <name>Hello World</name>
+    <name>Location Finder</name>
 
     <description>
-        Hello World sample application that responds to the deviceready event.
+        This app helps you determine your current location on a map.
     </description>
 
-    <author href="http://npontu.com.com" email="snwolley@gmail.com">ASHESI</author>
+    <author href="https://www.linkedin.com/in/alieujallow/" email="alieujallow93@gmail.com">Alieu Jallow</author>
 
 
         <!--
@@ -41,11 +41,12 @@
     <plugin name="cordova-plugin-geolocation" />
 
     <!-- Define app icon for each platform. -->
-    <icon src="icon.png" />
-    <icon src="res/icon/android/icon-36-ldpi.png"   gap:platform="android"    gap:qualifier="ldpi" />
-    <icon src="res/icon/android/icon-48-mdpi.png"   gap:platform="android"    gap:qualifier="mdpi" />
-    <icon src="res/icon/android/icon-72-hdpi.png"   gap:platform="android"    gap:qualifier="hdpi" />
-    <icon src="res/icon/android/icon-96-xhdpi.png"  gap:platform="android"    gap:qualifier="xhdpi" />
+    <icon src="res/icon.PNG"/>
+    <icon src="res/icon.PNG"   gap:platform="android"    gap:qualifier="ldpi" />
+    <icon src="res/icon.PNG"   gap:platform="android"    gap:qualifier="mdpi" />
+    <icon src="res/icon.PNG"   gap:platform="android"    gap:qualifier="hdpi" />
+    <icon src="res/icon.PNG"   gap:platform="android"    gap:qualifier="xhdpi"/>
+
     <icon src="res/icon/ios/icon-57.png"            gap:platform="ios"        width="57" height="57" />
     <icon src="res/icon/ios/icon-72.png"            gap:platform="ios"        width="72" height="72" />
     <icon src="res/icon/ios/icon-57-2x.png"         gap:platform="ios"        width="114" height="114" />

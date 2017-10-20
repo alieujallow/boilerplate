@@ -2,9 +2,9 @@
 <html>
   <head>
   <meta charset="utf-8">
-  <title>phonegap & jquery mobile boilerplate</title>
+  <title>Location Finder</title>
   
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no;" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 
   <link rel="stylesheet"  href="css/jquery.mobile.structure.css" />
   <link rel="stylesheet" href="css/jquery.mobile.theme.css" />
@@ -42,10 +42,10 @@
 
     	<div data-role="content">
             <p id="geolocation"></p>
-            <div id="map">
+            <div id="map" style="height: 400px;">
               
-            </div>
-            <button id="locationBtn">Find Location</button>
+            </div><br>
+            <button id="locationBtn">Show Location</button>
     	</div><!-- /content -->
 
     	<div data-role="footer">
@@ -54,5 +54,6 @@
 
     </div><!-- /page -->
      <script src="js/app/app.js"></script>
+     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBs8AI33gXoVnnhH9P6XCQgliwx5vJBt7s"></script>
   </body>
 </html>

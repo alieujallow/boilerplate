@@ -25,12 +25,14 @@ var id = 1;
     {
         marker.setMap(map);
         id++;
-        document.getElementById("locationBtn").innerHTML="Hide Location";
+        $('#locationBtn').html('Hide Location');
+        //document.getElementById("locationBtn").innerHTML="Hide Location";
     }
     else
     {
         marker.setMap(null);
         id = 1;
+        $('#locationBtn').html('Show Location');
         document.getElementById("locationBtn").innerHTML="Show Location";
     }
  });

@@ -9,14 +9,14 @@ var marker = undefined;
 var map = undefined;
 var id = 1;
 
-document.addEventListener("deviceready", onDeviceReady, false);
+//document.addEventListener("deviceready", onDeviceReady, false);
 
 //We decide to create a function to handle the 3rd party functions (eg. navigator.geolocation.getCurrentPosition)
 // which we earlier added to the native functions of the javascript
-function onDeviceReady()
+/*function onDeviceReady()
 {
      getMapLocation();
-}
+}*/
 
 //gets the location of the device when the button is clicked
  $('#locationBtn').on('click', function()

@@ -52,9 +52,32 @@
     	</div><!-- /footer -->
 
     </div><!-- /page -->
-     <!--<script src="js/app/app.js"></script><!-- /page -->
+    <script src="js/app/app.js"></script>
 
-     <script type="text/javascript">
+     <!--<script type="text/javascript">
+        var Latitude = undefined;
+        var Longitude = undefined;
+        var marker = undefined;
+        var map = undefined;
+        var id = 1;
+
+
+         $('#locationBtn').on('click', function()
+         {
+            if (id==1) 
+            {
+                marker.setMap(map);
+                id++;
+                document.getElementById("locationBtn").innerHTML="Hide Location";
+            }
+            else
+            {
+                marker.setMap(null);
+                id = 1;
+                document.getElementById("locationBtn").innerHTML="Show Location";
+            }
+         });
+
         document.addEventListener("deviceready", onDeviceReady, false);
 
         function onDeviceReady()
@@ -120,7 +143,7 @@
           marker.setMap(map);
         }*/
 
-     </script>
+     </script>-->
      <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBs8AI33gXoVnnhH9P6XCQgliwx5vJBt7s&callback=getMapLocation"></script>
   </body>
 </html>

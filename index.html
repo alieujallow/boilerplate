@@ -6,8 +6,10 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 
-  <link rel="stylesheet"  href="css/jquery.mobile.structure.css" />
-  <link rel="stylesheet" href="css/jquery.mobile.theme.css" />
+  <!--<link rel="stylesheet"  href="css/jquery.mobile.structure.css" />-->
+  <!--<link rel="stylesheet" href="css/jquery.mobile.theme.css" />-->
+
+   <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
   
   <script>
     var userAgent = navigator.userAgent + '';
@@ -36,13 +38,12 @@
     
     <div data-role="page">
 
-    	<div data-role="header">
-    		<h1>Single page</h1>
+    	<div data-role="header" style="background-color: #87ceeb;">
+    		<h4 style="color: white; text-align: center;">My Location Finder</h4>
     	</div><!-- /header -->
 
     	<div data-role="content">
-            <p id="geolocation"></p>
-            <div id="map" style="height:80vh; width:94vw;">
+            <div id="map" style="height:50vh;">
             </div>
     	</div><!-- /content -->
 

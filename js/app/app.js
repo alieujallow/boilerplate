@@ -25,14 +25,14 @@ var id = 1;
     {
         marker.setMap(map);
         id++;
-        $('#locationBtn').html('Hide Location');
+        $('#locationBtn').text('Hide Location');
         //document.getElementById("locationBtn").innerHTML="Hide Location";
     }
     else
     {
         marker.setMap(null);
         id = 1;
-        $('#locationBtn').html('Show Location');
+        $('#locationBtn').text('Show Location');
         //document.getElementById("locationBtn").innerHTML="Show Location";
     }
  });
@@ -69,7 +69,7 @@ function getMap(latitude, longitude)
     });
 
     marker.setMap(null);
-    map.setZoom(18);
+    map.setZoom(17);
     map.setCenter(marker.getPosition());
 }
 

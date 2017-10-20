@@ -57,16 +57,70 @@
      <script type="text/javascript">
         document.addEventListener("deviceready", onDeviceReady, false);
 
+        function onDeviceReady()
+        {
+          getMapLocation();
+        }
 
-        function myMap() {
-          var myCenter = new google.maps.LatLng(51.508742,-0.120850);
+        // Get geo coordinates
+        function getMapLocation()
+        {
+            navigator.geolocation.getCurrentPosition
+            (onMapSuccess, onMapError, { enableHighAccuracy: true });
+        }
+
+        // Success callback for get geo coordinates
+        var onMapSuccess = function (position) 
+        {
+            Latitude = position.coords.latitude;
+            Longitude = position.coords.longitude;
+            getMap(Latitude, Longitude);
+        }
+
+        // Get map by using coordinates
+        function getMap(latitude, longitude) 
+        {
+            var mapOptions = {
+                center: new google.maps.LatLng(0, 0),
+                zoom: 1,
+                mapTypeId: google.maps.MapTypeId.ROADMAP
+            };
+
+            map = new google.maps.Map
+            (document.getElementById("map"), mapOptions);
+            var latLong = new google.maps.LatLng(latitude, longitude);
+            marker = new google.maps.Marker({
+                position: latLong
+            });
+
+            marker.setMap(null);
+            map.setZoom(18);
+            map.setCenter(marker.getPosition());
+        }
+
+
+        // Error callback
+        function onMapError(error)
+        {
+            console.log('code: ' + error.code + '\n' +
+          'message: ' + error.message + '\n');
+        }
+
+        /*function myMap(position)
+         {
+
+          Latitude = position.coords.latitude;
+          Longitude = position.coords.longitude;
+
+          var myCenter = new google.maps.LatLng(Latitude,Longitude);
           var mapCanvas = document.getElementById("map");
           var mapOptions = {center: myCenter, zoom: 5};
           var map = new google.maps.Map(mapCanvas, mapOptions);
           var marker = new google.maps.Marker({position:myCenter});
           marker.setMap(map);
-        }
+        }*/
+
      </script>
-     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBs8AI33gXoVnnhH9P6XCQgliwx5vJBt7s&callback=myMap"></script>
+     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBs8AI33gXoVnnhH9P6XCQgliwx5vJBt7s"></script>
   </body>
 </html>

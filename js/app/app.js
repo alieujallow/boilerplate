@@ -8,6 +8,7 @@ var Longitude = undefined;
 var marker = undefined;
 var map = undefined;
 var id = 1;
+
 document.addEventListener("deviceready", onDeviceReady, false);
 
 //We decide to create a function to handle the 3rd party functions (eg. navigator.geolocation.getCurrentPosition)
@@ -70,7 +71,7 @@ function getMap(latitude, longitude)
     map.setCenter(marker.getPosition());
 }
 
-/*// Success callback for watching your changing position
+// Success callback for watching your changing position
 var onMapWatchSuccess = function (position)
  {
     var updatedLatitude = position.coords.latitude;
@@ -82,7 +83,7 @@ var onMapWatchSuccess = function (position)
         Longitude = updatedLongitude;
         getMap(updatedLatitude, updatedLongitude);
     }
-}*/
+}
 
 // Error callback
 function onMapError(error) {
@@ -91,8 +92,8 @@ function onMapError(error) {
 }
 
 // Watch your changing position
-/*function watchMapPosition() 
+function watchMapPosition() 
 {
     return navigator.geolocation.watchPosition
     (onMapWatchSuccess, onMapError, { enableHighAccuracy: true });
-}*/
+}

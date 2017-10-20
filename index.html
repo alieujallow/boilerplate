@@ -52,8 +52,21 @@
     	</div><!-- /footer -->
 
     </div><!-- /page -->
-     <script src="js/app/app.js"></script>
-     
-     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBs8AI33gXoVnnhH9P6XCQgliwx5vJBt7s"></script>
+     <!--<script src="js/app/app.js"></script><!-- /page -->
+
+     <script type="text/javascript">
+        document.addEventListener("deviceready", onDeviceReady, false);
+
+
+        function myMap() {
+          var myCenter = new google.maps.LatLng(51.508742,-0.120850);
+          var mapCanvas = document.getElementById("map");
+          var mapOptions = {center: myCenter, zoom: 5};
+          var map = new google.maps.Map(mapCanvas, mapOptions);
+          var marker = new google.maps.Marker({position:myCenter});
+          marker.setMap(map);
+        }
+     </script>
+     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBs8AI33gXoVnnhH9P6XCQgliwx5vJBt7s&callback=myMap"></script>
   </body>
 </html>

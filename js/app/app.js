@@ -7,7 +7,7 @@ var Latitude = undefined;
 var Longitude = undefined;
 var marker = undefined;
 var map = undefined;
-var id = 1;
+var id =1;
 
 //document.addEventListener("deviceready", onDeviceReady, false);
 

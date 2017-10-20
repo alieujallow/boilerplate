@@ -23,6 +23,7 @@ var id = 1;
  {
     if (id==1) 
     {
+        map.setZoom(17);
         marker.setMap(map);
         id++;
         $('#locationBtn').text('Hide Location');
@@ -30,6 +31,7 @@ var id = 1;
     }
     else
     {
+        map.setZoom(5);
         marker.setMap(null);
         id = 1;
         $('#locationBtn').text('Show Location');
@@ -69,33 +71,14 @@ function getMap(latitude, longitude)
     });
 
     marker.setMap(null);
-    map.setZoom(17);
+    map.setZoom(5);
     map.setCenter(marker.getPosition());
 }
 
-// Success callback for watching your changing position
-var onMapWatchSuccess = function (position)
- {
-    var updatedLatitude = position.coords.latitude;
-    var updatedLongitude = position.coords.longitude;
-
-    if (updatedLatitude != Latitude && updatedLongitude != Longitude)
-    {
-        Latitude = updatedLatitude;
-        Longitude = updatedLongitude;
-        getMap(updatedLatitude, updatedLongitude);
-    }
-}
-
 // Error callback
-function onMapError(error) {
-    console.log('code: ' + error.code + '\n' +
-        'message: ' + error.message + '\n');
+function onMapError(error) 
+{
+    alert('code: ' + error.code + '\n' +
+     'message: ' + error.message + '\n');
 }
 
-// Watch your changing position
-function watchMapPosition() 
-{
-    return navigator.geolocation.watchPosition
-    (onMapWatchSuccess, onMapError, { enableHighAccuracy: true });
-}
